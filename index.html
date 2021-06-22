@@ -1,0 +1,39 @@
+var readlineSync = require("readline-sync");
+
+var userName = readlineSync.question("What's your name? ");
+
+console.log("Welcome "+ userName +" do you know Tanay");
+
+var score = 0;
+
+function play(question,answer){
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer.toLowerCase() === answer.toLowerCase()){
+    console.log("right!");
+    score ++
+    
+  }
+  else{
+    console.log("wrong!")
+  }
+
+  console.log("Current Score:",score)
+  console.log("------------------------")
+}
+
+var questions= [
+  {
+  question:"Where do i live? ",
+  answer:"Bangalore"
+},
+  {
+  question:"What is my favourite sport? ",
+  answer:"Football"}
+]
+
+for (var i=0 ;i < questions.length ; i++){
+  var currentQuestion = questions[i];
+  play(currentQuestion.question,currentQuestion.answer)
+}
+
